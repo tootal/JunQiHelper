@@ -19,4 +19,12 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>MouseClickDialog</name>
+    <message>
+        <location filename="mouseclickdialog.ui" line="16"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

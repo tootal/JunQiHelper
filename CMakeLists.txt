@@ -34,6 +34,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        mouseclickdialog.cpp
+        mouseclickdialog.h
+        mouseclickdialog.ui
         ${TS_FILES}
 )
 

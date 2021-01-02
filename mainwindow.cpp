@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+#include "mouseclickdialog.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,3 +15,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_action_Mouse_Click_triggered()
+{
+    auto dialog = new MouseClickDialog(this);
+    dialog->show();
+}
