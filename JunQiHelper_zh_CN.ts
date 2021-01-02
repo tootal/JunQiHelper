@@ -8,5 +8,15 @@
         <source>MainWindow</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="mainwindow.ui" line="28"/>
+        <source>&amp;Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="37"/>
+        <source>&amp;Mouse Click</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

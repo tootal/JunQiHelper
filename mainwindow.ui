@@ -14,8 +14,29 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Tool">
+    <property name="title">
+     <string>&amp;Tool</string>
+    </property>
+    <addaction name="action_Mouse_Click"/>
+   </widget>
+   <addaction name="menu_Tool"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Mouse_Click">
+   <property name="text">
+    <string>&amp;Mouse Click</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
