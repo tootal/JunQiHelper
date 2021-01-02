@@ -1,0 +1,12 @@
+#ifndef GLOBALHOOK_GLOBAL_H
+#define GLOBALHOOK_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(GLOBALHOOK_LIBRARY)
+#  define GLOBALHOOK_EXPORT Q_DECL_EXPORT
+#else
+#  define GLOBALHOOK_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // GLOBALHOOK_GLOBAL_H
