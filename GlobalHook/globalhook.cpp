@@ -3,21 +3,27 @@
 #include <QString>
 
 // Global Variables
-HINSTANCE g_instanceHandle = nullptr;
 HHOOK g_keyHookHandle = nullptr;
+bool g_keyHookInstalled = false;
 
 // Global Functions
-
 LRESULT CALLBACK KeyboardProcedure(int code, WPARAM wParam, LPARAM lParam) {
-    // point to keyboard hook struct
-    auto pkbhs = reinterpret_cast<PKBDLLHOOKSTRUCT>(lParam);
-    qInfo("Key Code: %u", pkbhs->vkCode);
+    if (g_keyHookInstalled) {
+        // point to keyboard hook struct
+        auto pkbhs = reinterpret_cast<PKBDLLHOOKSTRUCT>(lParam);
+        qInfo("Key Code: %u", pkbhs->vkCode);
+    }
     return CallNextHookEx(g_keyHookHandle, code, wParam, lParam);
 }
 
 // GlobalHook Methods
 
 Q_GLOBAL_STATIC(GlobalHook, globalHook);
+
+GlobalHook::~GlobalHook()
+{
+    uninstallKeyHook();
+}
 
 QString GlobalHook::name()
 {
@@ -31,7 +37,7 @@ QString GlobalHook::author()
 
 int GlobalHook::version()
 {
-    return 0x000004;
+    return 0x000006;
 }
 
 GlobalHook *GlobalHook::instance()
@@ -41,6 +47,18 @@ GlobalHook *GlobalHook::instance()
 
 bool GlobalHook::installKeyHook()
 {
-    SetWindowsHookEx(WH_KEYBOARD_LL, KeyboardProcedure, g_instanceHandle, 0);
+    g_keyHookInstalled = true;
+    SetWindowsHookEx(WH_KEYBOARD_LL, KeyboardProcedure, 0, 0);
     return g_keyHookHandle;
+}
+
+bool GlobalHook::uninstallKeyHook()
+{
+    g_keyHookInstalled = false;
+    if (!g_keyHookHandle) return true;
+    if (UnhookWindowsHookEx(g_keyHookHandle)) {
+        g_keyHookHandle = nullptr;
+        return true;
+    }
+    return false;
 }

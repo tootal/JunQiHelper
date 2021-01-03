@@ -11,6 +11,8 @@ class GLOBALHOOK_EXPORT GlobalHook : public QObject
 {
     Q_OBJECT
 public:
+    virtual ~GlobalHook();
+    
     static QString name();
     static QString author();
     static int version();
@@ -18,6 +20,7 @@ public:
 public:
     static GlobalHook* instance();
     bool installKeyHook();
+    bool uninstallKeyHook();
 };
 
 #endif // GLOBALHOOK_H
