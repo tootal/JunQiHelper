@@ -17,9 +17,7 @@ LRESULT CALLBACK KeyboardProcedure(int code, WPARAM wParam, LPARAM lParam) {
 
 // GlobalHook Methods
 
-GlobalHook::GlobalHook()
-{
-}
+Q_GLOBAL_STATIC(GlobalHook, globalHook);
 
 QString GlobalHook::name()
 {
@@ -33,7 +31,12 @@ QString GlobalHook::author()
 
 int GlobalHook::version()
 {
-    return 0x000003;
+    return 0x000004;
+}
+
+GlobalHook *GlobalHook::instance()
+{
+    return globalHook();
 }
 
 bool GlobalHook::installKeyHook()
