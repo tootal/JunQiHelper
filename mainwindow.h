@@ -18,6 +18,8 @@ public:
 private slots:
     void on_action_Mouse_Click_triggered();
 
+    void on_action_About_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

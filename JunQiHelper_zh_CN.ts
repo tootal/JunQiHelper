@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="JunQiHelper_zh_CN">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>MainWindow</name>
     <message>
@@ -14,8 +14,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="37"/>
+        <location filename="mainwindow.ui" line="34"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="44"/>
         <source>&amp;Mouse Click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="49"/>
+        <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
