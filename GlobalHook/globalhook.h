@@ -7,6 +7,8 @@ class GLOBALHOOK_EXPORT GlobalHook
 {
 public:
     GlobalHook();
+    static QString name();
+    static int version();
 };
 
 #endif // GLOBALHOOK_H
