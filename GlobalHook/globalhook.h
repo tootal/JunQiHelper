@@ -17,6 +17,9 @@ public:
     static QString author();
     static int version();
 
+signals:
+    void keyPressed();
+    
 public:
     static GlobalHook* instance();
     bool installKeyHook();

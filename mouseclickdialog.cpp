@@ -9,6 +9,10 @@ MouseClickDialog::MouseClickDialog(QWidget *parent) :
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
+    connect(GHOOK, &GlobalHook::keyPressed,
+            this, []() {
+        qDebug("key pressed!");
+    });
     GHOOK->installKeyHook();
 }
 

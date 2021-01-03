@@ -13,7 +13,7 @@ LRESULT CALLBACK KeyboardProcedure(int code, WPARAM wParam, LPARAM lParam) {
         auto pkbhs = reinterpret_cast<PKBDLLHOOKSTRUCT>(lParam);
         // ignore key release event
         if (pkbhs->flags & LLKHF_UP) {
-            qInfo("Key Code: %u", pkbhs->vkCode);
+            emit GHOOK->keyPressed();
         }
     }
     return CallNextHookEx(g_keyHookHandle, code, wParam, lParam);
@@ -40,7 +40,7 @@ QString GlobalHook::author()
 
 int GlobalHook::version()
 {
-    return 0x000007;
+    return 0x000008;
 }
 
 GlobalHook *GlobalHook::instance()
