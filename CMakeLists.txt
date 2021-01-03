@@ -60,6 +60,28 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
+# Remove the console of gui program
+if(WIN32)
+    if(MSVC)
+        set_target_properties(JunQiHelper PROPERTIES
+            WIN32_EXECUTABLE YES
+            LINK_FLAGS "/ENTRY:mainCRTStartup"
+        )
+    elseif(CMAKE_COMPILER_IS_GNUCXX)
+            # SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows") # Not tested
+    else()
+        message(SEND_ERROR "You are using an unsupported Windows compiler! (Not MSVC or GCC)")
+    endif(MSVC)
+elseif(APPLE)
+    set_target_properties(JunQiHelper PROPERTIES
+        MACOSX_BUNDLE YES
+    )
+elseif(UNIX)
+    # Nothing special required
+else()
+    message(SEND_ERROR "You are on an unsupported platform! (Not Win32, Mac OS X or Unix)")
+endif(WIN32)
+
 target_link_libraries(JunQiHelper PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(JunQiHelper PRIVATE
     ${CMAKE_SOURCE_DIR}/build-GlobalHook-Desktop_Qt_6_0_0_MSVC2019_64bit-Debug/GlobalHook.lib)
