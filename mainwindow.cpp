@@ -4,7 +4,6 @@
 #include <QMessageBox>
 
 #include "mouseclickdialog.h"
-#include "GlobalHook/globalhook.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -23,6 +22,7 @@ void MainWindow::on_action_Mouse_Click_triggered()
 {
     auto dialog = new MouseClickDialog(this);
     dialog->show();
+    globalHook.installKeyHook();
 }
 
 void MainWindow::on_action_About_triggered()

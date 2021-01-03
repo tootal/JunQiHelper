@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "GlobalHook/globalhook.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,5 +24,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    GlobalHook globalHook;
 };
 #endif // MAINWINDOW_H
