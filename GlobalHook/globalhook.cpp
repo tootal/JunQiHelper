@@ -11,7 +11,12 @@ QString GlobalHook::name()
     return "GloblHook";
 }
 
+QString GlobalHook::author()
+{
+    return "tootal";
+}
+
 int GlobalHook::version()
 {
-    return 0x000001;
+    return 0x000002;
 }
