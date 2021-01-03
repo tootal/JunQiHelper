@@ -61,3 +61,5 @@ else()
 endif()
 
 target_link_libraries(JunQiHelper PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(JunQiHelper PRIVATE
+    ${CMAKE_SOURCE_DIR}/build-GlobalHook-Desktop_Qt_6_0_0_MSVC2019_64bit-Debug/GlobalHook.lib)
